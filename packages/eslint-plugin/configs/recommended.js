@@ -18,7 +18,10 @@ module.exports = {
 		'plugin:prettier/recommended',
 		'prettier/react',
 	],
+	plugins: [ 'import' ],
 	rules: {
+		'import/no-extraneous-dependencies': 'error',
+		'import/no-unresolved': 'error',
 		'prettier/prettier': [ 'error', prettierConfig ],
 	},
 };

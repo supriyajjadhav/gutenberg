@@ -34,7 +34,6 @@ module.exports = {
 		'plugin:@wordpress/eslint-plugin/recommended',
 		'plugin:eslint-comments/recommended',
 	],
-	plugins: [ 'import' ],
 	globals: {
 		wp: 'off',
 	},
@@ -128,14 +127,10 @@ module.exports = {
 	},
 	overrides: [
 		{
-			files: [ 'packages/**/*.js' ],
-			excludedFiles: [
-				'**/*.@(android|ios|native).js',
-				...developmentFiles,
-			],
+			files: [ '**/*.@(android|ios|native).js', ...developmentFiles ],
 			rules: {
-				'import/no-extraneous-dependencies': 'error',
-				'import/no-unresolved': 'error',
+				'import/no-extraneous-dependencies': 'off',
+				'import/no-unresolved': 'off',
 			},
 		},
 		{
