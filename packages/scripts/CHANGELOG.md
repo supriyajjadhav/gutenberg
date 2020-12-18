@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Breaking Changes
+
+-   The bundled `postcss-loader` dependency has been updated from requiring `^3.0.0` to requiring `^4.1.0`.
+
 ## 12.6.0 (2020-12-17)
 
 ### Enhancements
