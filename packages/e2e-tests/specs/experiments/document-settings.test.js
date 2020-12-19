@@ -33,7 +33,7 @@ async function getDocumentSettingsSecondaryTitle() {
 
 describe( 'Document Settings', () => {
 	beforeAll( async () => {
-		await activateTheme( 'tt1-blocks' );
+		await activateTheme( 'twentytwentyone-blocks' );
 		await trashAllPosts( 'wp_template' );
 		await trashAllPosts( 'wp_template_part' );
 	} );
@@ -61,6 +61,11 @@ describe( 'Document Settings', () => {
 			await navigationPanel.navigate( 'Templates' );
 			await navigationPanel.clickItemByText( 'Index' );
 
+			// TODO: Remove when toolbar supports text fields
+			expect( console ).toHaveWarnedWith(
+				'Using custom components as toolbar controls is deprecated. Please use ToolbarItem or ToolbarButton components instead. See: https://developer.wordpress.org/block-editor/components/toolbar-button/#inside-blockcontrols'
+			);
+
 			// Evaluate the document settings title
 			const actual = await getDocumentSettingsTitle();
 
@@ -75,6 +80,11 @@ describe( 'Document Settings', () => {
 				);
 				await page.click(
 					'.site-header[data-type="core/template-part"]'
+				);
+
+				// TODO: Remove when toolbar supports text fields
+				expect( console ).toHaveWarnedWith(
+					'Using custom components as toolbar controls is deprecated. Please use ToolbarItem or ToolbarButton components instead. See: https://developer.wordpress.org/block-editor/components/toolbar-button/#inside-blockcontrols'
 				);
 
 				// Evaluate the document settings secondary title
