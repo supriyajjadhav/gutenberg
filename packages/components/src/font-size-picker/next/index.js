@@ -1,12 +1,8 @@
 /**
- * External dependencies
- */
-import { FontSizeControl } from '@wp-g2/components';
-
-/**
  * Internal dependencies
  */
-import { __unstableWithNext as withNext } from '../__next/context';
+import { __unstableWithNext as withNext } from '../../__next/context';
+import FontSizeControl from './font-size-control';
 
 const FontSizePicker =
 	process.env.COMPONENT_SYSTEM_PHASE === 1

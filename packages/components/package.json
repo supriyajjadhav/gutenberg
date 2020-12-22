@@ -46,6 +46,7 @@
 		"@wordpress/rich-text": "file:../rich-text",
 		"@wordpress/warning": "file:../warning",
 		"@wp-g2/components": "^0.0.117",
+		"@wp-g2/context": "^0.0.117",
 		"@wp-g2/styles": "^0.0.117",
 		"@wp-g2/substate": "^0.0.117",
 		"@wp-g2/utils": "^0.0.117",
