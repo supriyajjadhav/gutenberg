@@ -17,11 +17,6 @@ import { useFontSizeControl } from './use-font-size-control';
 
 function FontSizeControl( props, forwardedRef ) {
 	const {
-		customLabel = __( 'Custom' ),
-		disabled,
-		label,
-		max,
-		min,
 		options,
 		inputValue,
 		isDefaultValue,
@@ -29,7 +24,6 @@ function FontSizeControl( props, forwardedRef ) {
 		onChange,
 		onReset,
 		onInputChange,
-		selectDropdownProps,
 		size,
 		withSlider,
 		withNumberInput,
@@ -39,19 +33,18 @@ function FontSizeControl( props, forwardedRef ) {
 
 	if ( ! options ) return null;
 
+	const label = __( 'Font size' );
+	const customLabel = __( 'Custom' );
+
 	return (
 		<View as="fieldset" { ...otherProps }>
 			<VisuallyHidden as="legend">{ label }</VisuallyHidden>
 			<VStack spacing={ 3 }>
 				<FontSizeControlSelect
-					{ ...selectDropdownProps }
 					customLabel={ customLabel }
-					disabled={ disabled }
 					inputValue={ inputValue }
 					isDefaultValue={ isDefaultValue }
 					label={ label }
-					max={ max }
-					min={ min }
 					onChange={ onChange }
 					onInputChange={ onInputChange }
 					onReset={ onReset }
@@ -63,9 +56,8 @@ function FontSizeControl( props, forwardedRef ) {
 					withSelect={ withSelect }
 				/>
 				<FontSizeControlSlider
-					disabled={ disabled }
-					max={ max }
-					min={ min }
+					max={ 100 }
+					min={ 1 }
 					onChange={ onInputChange }
 					size={ size }
 					value={ inputValue }

@@ -8,7 +8,6 @@ import { createUnitValue, is, noop } from '@wp-g2/utils';
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
 import { useCallback } from '@wordpress/element';
 
 /**
@@ -25,25 +24,12 @@ import {
 
 export function useFontSizeControl( props ) {
 	const {
-		className,
-		customLabel = __( 'Custom' ),
 		disableCustomFontSizes,
-		disabled = false,
 		fontSizes = [],
-		isPreviewable,
-		label = __( 'Font size' ),
-		max = 100,
-		maxWidth,
-		min = 1,
-		minWidth,
 		onChange = noop,
-		onClose,
-		onOpen,
-		placeholder,
-		renderItem,
-		size,
 		value,
 		withSlider = false,
+		className,
 		...otherProps
 	} = useContextSystem( props );
 
@@ -96,39 +82,22 @@ export function useFontSizeControl( props ) {
 		( option ) => option.key === selectedFontSizeSlug
 	);
 
-	const isDefaultValue = ! is.defined( value );
+	const isDefaultValue = ! is.defined( value, className );
 
-	const classes = cx( styles.FontSizeControl, className );
+	const classes = cx( styles.FontSizeControl );
 
 	const withSelect = fontSizes.length > 0;
 	const withNumberInput = ! withSlider && ! disableCustomFontSizes;
 
-	const selectDropdownProps = {
-		isPreviewable,
-		maxWidth,
-		minWidth,
-		onClose,
-		onOpen,
-		placeholder,
-		renderItem,
-	};
-
 	return {
 		...otherProps,
 		className: classes,
-		customLabel,
-		disabled,
 		inputValue,
 		isDefaultValue,
-		label,
-		max,
-		min,
 		onChange: handleOnChange,
 		onInputChange: handleOnInputChange,
 		onReset: handleOnReset,
 		options,
-		selectDropdownProps,
-		size,
 		value: currentValue,
 		withNumberInput,
 		withSelect,
